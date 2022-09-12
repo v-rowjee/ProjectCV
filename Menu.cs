@@ -25,12 +25,12 @@ namespace ProjectCV
             int choice = -1;
 
             Console.Write("Choice: ");
-            choice = int.Parse(Console.ReadLine());
+            int.TryParse(Console.ReadLine(), out choice);
 
             while (choice < 1 || choice > 5)
             {
                 Console.Write("Choice: ");
-                choice = int.Parse(Console.ReadLine());
+                int.TryParse(Console.ReadLine(), out choice);
             }
 
             return choice;
