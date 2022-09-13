@@ -26,7 +26,7 @@ namespace ProjectCV
                     subMenu.Display();
                     int SubMenuSelection = subMenu.GetSelection();
 
-                    while (SubMenuSelection != subMenu.experienceList.Count + 1) // while GoBack not selected
+                    while (SubMenuSelection != subMenu.NumOfExperiences() + 1) // while GoBack not selected
                     {
                         subMenu.DetailsOf(SubMenuSelection); // display desc of chosen experience
                         SubMenuSelection = subMenu.GetSelection();

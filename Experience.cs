@@ -8,10 +8,10 @@ namespace ProjectCV
 {
     internal class Experience
     {
-        public string companyName { set; get; }
-        public int dateFrom { set; get; }
-        public int dateTo { set; get; }
-        public string description { set; get; }
+        private string companyName;
+        private int dateFrom;
+        private int dateTo;
+        private string description;
 
         public Experience(string companyName, int dateFrom, int dateTo, string description) : base()
         {
@@ -29,6 +29,11 @@ namespace ProjectCV
             this.description = "Test Description";
         }
 
+        public string GetDescription()
+        {
+            return description;
+        }
+
         public override string ToString()
         {
             if (dateFrom == dateTo)
@@ -40,7 +45,7 @@ namespace ProjectCV
 
     internal class ExperienceMenu : Menu
     {
-        public List<Experience> experienceList { get; set; }
+        private List<Experience> experienceList { get; set; }
 
         public ExperienceMenu() : base()
         {
@@ -50,6 +55,11 @@ namespace ProjectCV
         public void Add(Experience e)
         {
             experienceList.Add(e);
+        }
+
+        public int NumOfExperiences()
+        {
+            return experienceList.Count;
         }
 
         public override void Display()
@@ -66,7 +76,7 @@ namespace ProjectCV
 
         public override void DetailsOf(int choice)
         {
-            Console.WriteLine(experienceList[choice-1].description);
+            Console.WriteLine(experienceList[choice-1].GetDescription());
         }
 
         public override int GetSelection()
